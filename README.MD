@@ -9,7 +9,7 @@ With this small programm you can change the densitiy of youre traffic in ETS 2
 
 When starting the programm you see this menu:
 
-![Menu](assets/menu.png)
+![Menu](https://i.imgur.com/XvRAE4M.png)
 
 To change the density enter 1 and press enter.
 
@@ -18,7 +18,7 @@ If you dont know what your PC Username is read the text below!
 <br>
 
 After that it should look like that:
-![Menu](assets/menu2.png)
+![Menu](https://i.imgur.com/pW3cTal.png)
 In this field you enter the amount of traffic. <br>
 **10** is the maximum <br>
  **1** is the minimum <br><br>
@@ -41,14 +41,14 @@ After that the original file is loaded and the from the programm createt files g
 
     When opening youre explorer it should look something like this
 
-    ![Explorer](assets/explorer.png)
+    ![Explorer](https://i.imgur.com/lG0UTvN.png)
 
 
 <br><br>
 
 2. On the left hand side click on Local Disk (C:) and search for the folder **"Users"**
 
-    ![Explorer](assets/explorer2.png)
+    ![Explorer](https://i.imgur.com/MwVmyT0.png)
 
 
 
@@ -56,7 +56,7 @@ After that the original file is loaded and the from the programm createt files g
 
 3. In the folder **"Users"** you find all youre users on the pc. The name of the folder is youre username in my case it's "sebfa"
 
-    ![Explorer](assets/explorer3.png)
+    ![Explorer](https://i.imgur.com/peNSJKa.png)
 
 
 ### Somethin not working?
