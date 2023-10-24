@@ -7,22 +7,23 @@ With this small programm you can change the densitiy of youre traffic in ETS 2
 
     If youre game is running close it now!
 
-When starting the programm you see this menu: (Old Version, PC Name not required anymore)
+When starting the programm you see this menu:
 
-![Menu](assets/menu.png)
+![Menu](https://i.imgur.com/QzfggNK.png)
 
 To change the density enter 1 and press enter.
 
 
 After that it should look like that:
-![Menu](assets/menu2.png)
+
+![Menu](https://i.imgur.com/DFPpXAp.png)
+
 In this field you enter the amount of traffic. <br>
 **10** is the maximum <br>
  **1** is the minimum <br><br>
  Press enter and you are ready to go!
 
 ---
-<br>
 
 ### Reset to default:
 
