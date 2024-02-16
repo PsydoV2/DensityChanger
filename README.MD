@@ -27,7 +27,7 @@ In this field you enter the amount of traffic. <br>
 
 ### Reset to default:
 
-When using the program the first time it creatas a backup from the original config. <br>
+When using the program the first time it creates a backup from the original config. <br>
 To load the backup just enter 2.<br>
 After that the original file is loaded and the from the programm createt files get deleted! <br>
 
