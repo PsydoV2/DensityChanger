@@ -34,7 +34,7 @@ After that the original file is loaded and the from the programm createt files g
 ----
 
 
-### Somethin not working?
+### Something not working?
 
 Message me on Github or on Discord <br>
 
