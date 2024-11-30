@@ -59,7 +59,7 @@ This program allows you to change the traffic density and pedestrian density in 
 - If the program fails to create a backup, ensure that the program has the necessary permissions to read and write to the `Documents` folder.
 
 ## Contact
-For any issues or feedback, please contact the developer on Discord [psydoooo].
+For any issues or feedback, please contact the developer on Discord [psydooo].
 
 ---
 
