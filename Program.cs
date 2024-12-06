@@ -1,11 +1,11 @@
 ﻿string userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-string PFADATSCFG = Path.Combine(userProfile, "Documents", "Euro Truck Simulator 2", "config.cfg");
-string PFADETSCFG = Path.Combine(
+string PFADATSCFG = Path.Combine(
     userProfile,
     "Documents",
     "American Truck Simulator",
     "config.cfg"
 );
+string PFADETSCFG = Path.Combine(userProfile, "Documents", "Euro Truck Simulator 2", "config.cfg");
 string PFADATSCFGBCKP = Path.Combine(
     userProfile,
     "Documents",
