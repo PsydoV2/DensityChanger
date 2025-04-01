@@ -36,7 +36,7 @@ function App() {
   };
 
   const handelSaveEts = () => {
-    window.api.setAtsValues({ traffic: etsTraffic, pedestrian: etsPedestrian });
+    window.api.setEtsValues({ traffic: etsTraffic, pedestrian: etsPedestrian });
   };
 
   const handelResetAts = () => {
