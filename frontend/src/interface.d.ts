@@ -12,6 +12,8 @@ declare global {
       readEtsValuesFromConfig: (
         callback: (result: { traffic: int; pedestrian: int }) => void
       ) => void;
+      setAtsValues: (values: { traffic: number; pedestrian: number }) => void;
+      setEtsValues: (values: { traffic: number; pedestrian: number }) => void;
     };
   }
 }

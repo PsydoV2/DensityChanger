@@ -31,18 +31,24 @@ function App() {
     }
   }, [hasAts, hasEts]);
 
-  const handelSaveAts = () => {};
+  const handelSaveAts = () => {
+    window.api.setAtsValues({ traffic: atsTraffic, pedestrian: atsPedestrian });
+  };
 
-  const handelSaveEts = () => {};
+  const handelSaveEts = () => {
+    window.api.setAtsValues({ traffic: etsTraffic, pedestrian: etsPedestrian });
+  };
 
   const handelResetAts = () => {
     setAtsTraffic(1);
     setAtsPedestrian(1);
+    window.api.setAtsValues({ traffic: 1, pedestrian: 1 });
   };
 
   const handelResetEts = () => {
     setEtsTraffic(1);
     setEtsPedestrian(1);
+    window.api.setEtsValues({ traffic: 1, pedestrian: 1 });
   };
 
   return (
@@ -54,7 +60,8 @@ function App() {
         <h2>American Truck Simulator</h2>
 
         <label htmlFor="atstraffic">
-          Traffic: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+          Traffic:
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
           <span>{atsTraffic}</span>/10
         </label>
         <input
@@ -68,7 +75,7 @@ function App() {
         />
 
         <label htmlFor="atspedestrian">
-          Pedestrian:&nbsp;&nbsp; <span>{atsPedestrian}</span>/10
+          Pedestrian:&nbsp;&nbsp;&nbsp;&nbsp; <span>{atsPedestrian}</span>/10
         </label>
         <input
           type="range"
@@ -91,7 +98,8 @@ function App() {
         <h2>Euro Truck Simulator 2</h2>
 
         <label htmlFor="etstraffic">
-          Traffic: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+          Traffic:
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
           <span>{etsTraffic}</span>/10
         </label>
         <input
@@ -105,7 +113,7 @@ function App() {
         />
 
         <label htmlFor="etspedestrian">
-          Pedestrian:&nbsp;&nbsp; <span>{etsPedestrian}</span>/10
+          Pedestrian:&nbsp;&nbsp;&nbsp;&nbsp; <span>{etsPedestrian}</span>/10
         </label>
         <input
           type="range"

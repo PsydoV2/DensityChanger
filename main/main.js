@@ -58,7 +58,7 @@ ipcMain.on("checkConfig", (event) => {
 
 ipcMain.on("readAtsValuesFromConfig", (event) => {
   if (!fs.existsSync(atsCfgPath)) {
-    console.warn("config.cfg nicht gefunden:", filePath);
+    console.warn("config.cfg nicht gefunden:", atsCfgPath);
     return null;
   }
 
@@ -95,7 +95,7 @@ ipcMain.on("readAtsValuesFromConfig", (event) => {
 
 ipcMain.on("readEtsValuesFromConfig", (event) => {
   if (!fs.existsSync(etsCfgPath)) {
-    console.warn("config.cfg nicht gefunden:", filePath);
+    console.warn("config.cfg nicht gefunden:", etsCfgPath);
     return null;
   }
 
@@ -128,4 +128,74 @@ ipcMain.on("readEtsValuesFromConfig", (event) => {
   };
 
   event.reply("readEtsValuesFromConfigResult", result);
+});
+
+ipcMain.on("setAtsValues", (_, { traffic, pedestrian }) => {
+  if (!fs.existsSync(atsCfgPath)) {
+    console.warn("config.cfg nicht gefunden:", atsCfgPath);
+    return;
+  }
+
+  let content = fs.readFileSync(atsCfgPath, "utf-8");
+
+  const trafficRegex = /uset\s+g_traffic\s+"[\d.]+"/;
+  const pedestrianRegex = /uset\s+g_pedestrian\s+"[\d.]+"/;
+
+  if (trafficRegex.test(content)) {
+    content = content.replace(
+      trafficRegex,
+      `uset g_traffic "${traffic.toFixed(1)}"`
+    );
+  } else {
+    content += `\nuset g_traffic "${traffic.toFixed(1)}"`;
+  }
+
+  if (pedestrianRegex.test(content)) {
+    content = content.replace(
+      pedestrianRegex,
+      `uset g_pedestrian "${pedestrian.toFixed(1)}"`
+    );
+  } else {
+    content += `\nuset g_pedestrian "${pedestrian.toFixed(1)}"`;
+  }
+
+  fs.writeFileSync(atsCfgPath, content, "utf-8");
+  console.log(
+    `ATS-Werte aktualisiert: traffic=${traffic}, pedestrian=${pedestrian}`
+  );
+});
+
+ipcMain.on("setEtsValues", (_, { traffic, pedestrian }) => {
+  if (!fs.existsSync(etsCfgPath)) {
+    console.warn("config.cfg nicht gefunden:", etsCfgPath);
+    return;
+  }
+
+  let content = fs.readFileSync(etsCfgPath, "utf-8");
+
+  const trafficRegex = /uset\s+g_traffic\s+"[\d.]+"/;
+  const pedestrianRegex = /uset\s+g_pedestrian\s+"[\d.]+"/;
+
+  if (trafficRegex.test(content)) {
+    content = content.replace(
+      trafficRegex,
+      `uset g_traffic "${traffic.toFixed(1)}"`
+    );
+  } else {
+    content += `\nuset g_traffic "${traffic.toFixed(1)}"`;
+  }
+
+  if (pedestrianRegex.test(content)) {
+    content = content.replace(
+      pedestrianRegex,
+      `uset g_pedestrian "${pedestrian.toFixed(1)}"`
+    );
+  } else {
+    content += `\nuset g_pedestrian "${pedestrian.toFixed(1)}"`;
+  }
+
+  fs.writeFileSync(etsCfgPath, content, "utf-8");
+  console.log(
+    `ETS-Werte aktualisiert: traffic=${traffic}, pedestrian=${pedestrian}`
+  );
 });

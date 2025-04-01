@@ -19,4 +19,6 @@ contextBridge.exposeInMainWorld("api", {
     });
     ipcRenderer.send("readEtsValuesFromConfig");
   },
+  setAtsValues: (values) => ipcRenderer.send("setAtsValues", values),
+  setEtsValues: (values) => ipcRenderer.send("setEtsValues", values),
 });
