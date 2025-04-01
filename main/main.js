@@ -20,7 +20,8 @@ function createWindow() {
     win.loadURL("http://localhost:5173");
     win.webContents.openDevTools();
   } else {
-    win.loadFile(path.join(__dirname, "../frontend/dist/index.html"));
+    win.loadFile("index.html");
+    win.webContents.openDevTools();
   }
 }
 

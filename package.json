@@ -26,8 +26,10 @@
     },
     "files": [
       "main/**/*",
-      "preload.js",
-      "frontend/dist/**/*",
+      {
+        "from": "frontend/dist",
+        "to": "."
+      },
       "preload.js",
       "package.json"
     ],
