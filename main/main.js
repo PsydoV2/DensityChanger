@@ -34,7 +34,7 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-ipcMain.on("check-config", (event) => {
+ipcMain.on("checkConfig", (event) => {
   const atsPath = path.join(
     os.homedir(),
     "Documents",
@@ -53,5 +53,13 @@ ipcMain.on("check-config", (event) => {
     ets: fs.existsSync(etsPath),
   };
 
-  event.reply("config-result", result);
+  event.reply("checkConfigResult", result);
+});
+
+ipcMain.on("readAtsValuesFromConfig", (event) => {
+  event.reply("readAtsValuesFromConfigResult", result);
+});
+
+ipcMain.on("readEtsValuesFromConfig", (event) => {
+  event.reply("readEtsValuesFromConfigResult", result);
 });

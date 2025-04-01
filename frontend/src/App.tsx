@@ -25,7 +25,21 @@ function App() {
       setHasAts(result.ats);
       setHasEts(result.ets);
     });
-  }, []);
+
+    if (hasAts) {
+      window.api.readAtsValuesFromConfig((result) => {
+        setAtsTraffic(result.traffic);
+        setAtsPedestrian(result.pedestrian);
+      });
+    }
+
+    if (hasEts) {
+      window.api.readEtsValuesFromConfig((result) => {
+        setEtsTraffic(result.traffic);
+        setEtsPedestrian(result.pedestrian);
+      });
+    }
+  }, [hasAts, hasEts]);
 
   return (
     <div className="appContainer">
