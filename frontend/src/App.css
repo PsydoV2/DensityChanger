@@ -5,6 +5,8 @@
   --primary: #a3a3c7;
   --secondary: #6e434e;
   --accent: #ad8a79;
+  --save: #006fed;
+  --reset: red;
 }
 
 body {
@@ -92,24 +94,46 @@ nav {
   font-size: larger;
 }
 
-.gameContainer button {
+.gameContainer .btnBox {
   position: absolute;
-  bottom: 30px;
-  width: 200px;
-  height: 50px;
-  background-color: transparent;
-  border: 0;
-  outline: 2px solid red;
-  border-radius: 10px;
-  color: red;
-  font-weight: bolder;
-  font-size: larger;
-  cursor: pointer;
-  transition: 0.3s ease-in-out 0s;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.gameContainer button:hover {
-  background-color: red;
+.gameContainer .btnBox button {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: 0.2s ease-in-out 0s;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.gameContainer .btnBox button:nth-of-type(1) {
+  color: var(--save);
+  outline: 2px solid var(--save);
+}
+
+.gameContainer .btnBox button:nth-of-type(2) {
+  color: var(--reset);
+  outline: 2px solid var(--reset);
+}
+
+.gameContainer .btnBox button:nth-of-type(1):hover {
+  background-color: var(--save);
+  color: white;
+  transform: scale(1.1);
+}
+
+.gameContainer .btnBox button:nth-of-type(2):hover {
+  background-color: var(--reset);
   color: white;
   transform: scale(1.1);
 }

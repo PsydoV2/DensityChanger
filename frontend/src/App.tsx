@@ -10,16 +10,6 @@ function App() {
   const [etsTraffic, setEtsTraffic] = useState(1);
   const [etsPedestrian, setEtsPedestrian] = useState(1);
 
-  const resetAts = () => {
-    setAtsTraffic(5);
-    setAtsPedestrian(5);
-  };
-
-  const resetEts = () => {
-    setEtsTraffic(5);
-    setEtsPedestrian(5);
-  };
-
   useEffect(() => {
     window.api.checkConfig((result) => {
       setHasAts(result.ats);
@@ -40,6 +30,20 @@ function App() {
       });
     }
   }, [hasAts, hasEts]);
+
+  const handelSaveAts = () => {};
+
+  const handelSaveEts = () => {};
+
+  const handelResetAts = () => {
+    setAtsTraffic(1);
+    setAtsPedestrian(1);
+  };
+
+  const handelResetEts = () => {
+    setEtsTraffic(1);
+    setEtsPedestrian(1);
+  };
 
   return (
     <div className="appContainer">
@@ -76,7 +80,10 @@ function App() {
           onChange={(e) => setAtsPedestrian(Number(e.target.value))}
         />
 
-        <button onClick={resetAts}>RESET</button>
+        <div className="btnBox">
+          <button onClick={handelSaveAts}>SAVE</button>
+          <button onClick={handelResetAts}>RESET</button>
+        </div>
       </div>
 
       <div className="gameContainer">
@@ -110,7 +117,10 @@ function App() {
           onChange={(e) => setEtsPedestrian(Number(e.target.value))}
         />
 
-        <button onClick={resetEts}>RESET</button>
+        <div className="btnBox">
+          <button onClick={handelSaveEts}>SAVE</button>
+          <button onClick={handelResetEts}>RESET</button>
+        </div>
       </div>
     </div>
   );

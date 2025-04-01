@@ -34,32 +34,98 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-ipcMain.on("checkConfig", (event) => {
-  const atsPath = path.join(
-    os.homedir(),
-    "Documents",
-    "American Truck Simulator",
-    "config.cfg"
-  );
-  const etsPath = path.join(
-    os.homedir(),
-    "Documents",
-    "Euro Truck Simulator 2",
-    "config.cfg"
-  );
+var atsCfgPath = path.join(
+  os.homedir(),
+  "Documents",
+  "American Truck Simulator",
+  "config.cfg"
+);
+var etsCfgPath = path.join(
+  os.homedir(),
+  "Documents",
+  "Euro Truck Simulator 2",
+  "config.cfg"
+);
 
+ipcMain.on("checkConfig", (event) => {
   const result = {
-    ats: fs.existsSync(atsPath),
-    ets: fs.existsSync(etsPath),
+    ats: fs.existsSync(atsCfgPath),
+    ets: fs.existsSync(etsCfgPath),
   };
 
   event.reply("checkConfigResult", result);
 });
 
 ipcMain.on("readAtsValuesFromConfig", (event) => {
+  if (!fs.existsSync(atsCfgPath)) {
+    console.warn("config.cfg nicht gefunden:", filePath);
+    return null;
+  }
+
+  let traffic;
+  let pedestrian;
+  let matchTraffic;
+  let matchPedestrian;
+
+  const content = fs.readFileSync(atsCfgPath, "utf-8");
+
+  matchTraffic = content.match(/uset\s+g_traffic\s+"([\d.]+)"/);
+
+  if (matchTraffic && matchTraffic[1]) {
+    traffic = Math.round(parseFloat(matchTraffic[1]));
+  } else {
+    traffic = 1;
+  }
+
+  matchPedestrian = content.match(/uset\s+g_pedestrian\s+"([\d.]+)"/);
+
+  if (matchPedestrian && matchPedestrian[1]) {
+    pedestrian = Math.round(parseFloat(matchPedestrian[1]));
+  } else {
+    traffic = 1;
+  }
+
+  const result = {
+    traffic: traffic,
+    pedestrian: pedestrian,
+  };
+
   event.reply("readAtsValuesFromConfigResult", result);
 });
 
 ipcMain.on("readEtsValuesFromConfig", (event) => {
+  if (!fs.existsSync(etsCfgPath)) {
+    console.warn("config.cfg nicht gefunden:", filePath);
+    return null;
+  }
+
+  let traffic;
+  let pedestrian;
+  let matchTraffic;
+  let matchPedestrian;
+
+  const content = fs.readFileSync(etsCfgPath, "utf-8");
+
+  matchTraffic = content.match(/uset\s+g_traffic\s+"([\d.]+)"/);
+
+  if (matchTraffic && matchTraffic[1]) {
+    traffic = Math.round(parseFloat(matchTraffic[1]));
+  } else {
+    traffic = 1;
+  }
+
+  matchPedestrian = content.match(/uset\s+g_pedestrian\s+"([\d.]+)"/);
+
+  if (matchPedestrian && matchPedestrian[1]) {
+    pedestrian = Math.round(parseFloat(matchPedestrian[1]));
+  } else {
+    traffic = 1;
+  }
+
+  const result = {
+    traffic: traffic,
+    pedestrian: pedestrian,
+  };
+
   event.reply("readEtsValuesFromConfigResult", result);
 });
