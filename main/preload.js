@@ -1,5 +1,10 @@
-const { contextBridge } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("api", {
-  // sichere Funktionen bereitstellen
+  checkConfig: (callback) => {
+    ipcRenderer.once("config-result", (_, data) => {
+      callback(data);
+    });
+    ipcRenderer.send("check-config");
+  },
 });

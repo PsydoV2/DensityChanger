@@ -1,42 +1,115 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  --text: #ebebf3;
+  --background: #0e0e17;
+  --background2: #151522;
+  --primary: #a3a3c7;
+  --secondary: #6e434e;
+  --accent: #ad8a79;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  font-size: larger;
+  font-weight: bolder;
+  position: fixed;
+  top: 0;
+}
+
+.appContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  gap: 3rem;
+  padding-top: 50px;
+}
+
+.gameContainer {
+  width: 400px;
+  height: 500px;
+  background-color: var(--background2);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 0px 5px 3px var(--background2);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.gameContainer .disabled {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.821);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.821);
+}
+
+.gameContainer h2 {
+  width: 100%;
   text-align: center;
+  color: var(--text);
+  position: fixed;
+  top: 110px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.gameContainer label {
+  color: var(--text);
+  font-size: larger;
+  text-align: left;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gameContainer label:nth-of-type(1) {
+  margin-top: 130px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.gameContainer input {
+  width: 80%;
 }
 
-.card {
-  padding: 2em;
+.gameContainer span {
+  color: var(--accent);
+  font-weight: bolder;
+  font-size: larger;
 }
 
-.read-the-docs {
-  color: #888;
+.gameContainer button {
+  position: absolute;
+  bottom: 30px;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border: 0;
+  outline: 2px solid red;
+  border-radius: 10px;
+  color: red;
+  font-weight: bolder;
+  font-size: larger;
+  cursor: pointer;
+  transition: 0.3s ease-in-out 0s;
+}
+
+.gameContainer button:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.1);
 }
