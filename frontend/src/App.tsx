@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className="appContainer">
-      <nav>🚚 ETS2 Traffic Density Changer 🚚</nav>
+      <nav>🚚 Traffic Density Changer 🚚</nav>
 
       <div className="gameContainer">
         {!hasAts && (
@@ -106,6 +106,7 @@ function App() {
           <div className="disabled">
             <div className="disabledInfo">
               <GrDocumentConfig />
+              <span>No Config file found!</span>
             </div>
           </div>
         )}
