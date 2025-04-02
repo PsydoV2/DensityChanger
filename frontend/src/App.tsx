@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GrDocumentConfig } from "react-icons/gr";
 import "./App.css";
 
 function App() {
@@ -56,7 +57,14 @@ function App() {
       <nav>🚚 ETS2 Traffic Density Changer 🚚</nav>
 
       <div className="gameContainer">
-        {!hasAts && <div className="disabled"></div>}
+        {!hasAts && (
+          <div className="disabled">
+            <div className="disabledInfo">
+              <GrDocumentConfig />
+              <span>No Config file found!</span>
+            </div>
+          </div>
+        )}
         <h2>American Truck Simulator</h2>
 
         <label htmlFor="atstraffic">
@@ -94,7 +102,13 @@ function App() {
       </div>
 
       <div className="gameContainer">
-        {!hasEts && <div className="disabled"></div>}
+        {!hasEts && (
+          <div className="disabled">
+            <div className="disabledInfo">
+              <GrDocumentConfig />
+            </div>
+          </div>
+        )}
         <h2>Euro Truck Simulator 2</h2>
 
         <label htmlFor="etstraffic">
