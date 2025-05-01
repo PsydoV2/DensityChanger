@@ -144,7 +144,7 @@ If the keys don’t exist yet, they will be appended to the file.
 ## 👤 Author
 
 **Sebastian Falter**
-📫 [[sfalter.de](https://sfalter.de/)]
+📫 [[sfalter.de]](https://sfalter.de/)
 
 ---
 
