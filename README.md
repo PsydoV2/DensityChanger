@@ -151,3 +151,7 @@ If the keys don’t exist yet, they will be appended to the file.
 ## 📜 License
 
 MIT – Feel free to use, modify or share.
+
+---
+
+[![Donation](https://sfalter.de/FileHosting/Donation.png)](https://streamlabs.com/psydoooo/tip)
